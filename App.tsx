@@ -1,20 +1,30 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from "react";
+import { View, Text, Button } from "react-native";
+
+// const randomDiceRoll = () => Math.floor(Math.random() * 6) + 1;
 
 export default function App() {
+  // const [diceRolls, setDiceRolls] = useState<number[]>([]);
+  const [count, setCount] = useState<number>(0);
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View>
+      <Button
+        title="Increase Count"
+        onPress={() => {
+          setCount(count + 1);
+        }}
+      />
+      <Text
+        style={{
+          fontSize: 24,
+          fontWeight: "bold",
+          textAlign: "center",
+          margin: 20,
+        }}
+      >
+        {count}
+      </Text>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
